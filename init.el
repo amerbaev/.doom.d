@@ -182,14 +182,3 @@
        ;;literate
        (default +bindings +smartparens))
 
-(use-package-hook! centaur-tabs
-  :post-config
-  (defun centaur-tabs-buffer-groups()
-    (list
-     (cond
-      ((memq major-mode `(telega-root-mode
-                          telega-chat-mode))
-       "Telega")
-      (t
-       (centaur-tabs-get-group-name (current-buffer)))))))
-
