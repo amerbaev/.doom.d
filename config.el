@@ -53,6 +53,7 @@
 ;; they are implemented.
 
 (setq default-input-method "russian-computer")
+(setq calendar-week-start-day 1)
 
 (use-package! centaur-tabs
   :init
