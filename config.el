@@ -112,7 +112,8 @@
 			    diary-mode))
 	 "OrgMode")
         ((memq major-mode `(telega-root-mode
-                            telega-chat-mode))
+                            telega-chat-mode
+                            telega-image-mode))
          "Telega")
 	(t
 	 (centaur-tabs-get-group-name (current-buffer)))))))
