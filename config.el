@@ -93,18 +93,6 @@
  Other buffer group by `centaur-tabs-get-group-name' with project name."
      (list
       (cond
-	;; ((not (eq (file-remote-p (buffer-file-name)) nil))
-	;; "Remote")
-	((or (string-equal "*" (substring (buffer-name) 0 1))
-	     (memq major-mode '(magit-process-mode
-				magit-status-mode
-				magit-diff-mode
-				magit-log-mode
-				magit-file-mode
-				magit-blob-mode
-				magit-blame-mode
-				)))
-	 "Emacs")
 	((derived-mode-p 'prog-mode)
 	 "Editing")
 	((derived-mode-p 'dired-mode)
