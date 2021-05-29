@@ -19,8 +19,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two
-(setq doom-font (font-spec :family "Fira Code" :size 14)
-      doom-variable-pitch-font (font-spec :family "Fira Code" :size 12))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 14)
+      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 11))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -55,65 +55,7 @@
 (setq default-input-method "russian-computer")
 (setq calendar-week-start-day 1)
 
-(use-package! centaur-tabs
-  :init
-  (setq centaur-tabs-set-icons t
-        centaur-tabs-gray-out-icons 'buffer
-        centaur-tabs-set-bar 'left
-        centaur-tabs-set-modified-marker t
-        centaur-tabs-close-button "✕"
-        centaur-tabs-modified-marker "•"
-        ;; Scrolling (with the mouse wheel) past the end of the tab list
-        ;; replaces the tab list with that of another Doom workspace. This
-        ;; prevents that.
-        centaur-tabs-cycle-scope 'tabs)
-
-  :config
-  (add-hook '+doom-dashboard-mode-hook #'centaur-tabs-local-mode)
-  (add-hook '+popup-buffer-mode-hook #'centaur-tabs-local-mode)
-  (setq centaur-tabs-style "bar"
-	  centaur-tabs-height 32
-	  centaur-tabs-set-icons t
-	  centaur-tabs-set-modified-marker t
-	  centaur-tabs-show-navigation-buttons t
-	  centaur-tabs-set-bar 'under
-	  x-underline-at-descent-line t)
-   (centaur-tabs-headline-match)
-   ;; (setq centaur-tabs-gray-out-icons 'buffer)
-   ;; (centaur-tabs-enable-buffer-reordering)
-   ;; (setq centaur-tabs-adjust-buffer-order t)
-   (centaur-tabs-mode t)
-   (setq uniquify-separator "/")
-   (setq uniquify-buffer-name-style 'forward)
-   (defun centaur-tabs-buffer-groups ()
-     "`centaur-tabs-buffer-groups' control buffers' group rules.
-
- Group centaur-tabs with mode if buffer is derived from `eshell-mode' `emacs-lisp-mode' `dired-mode' `org-mode' `magit-mode'.
- All buffer name start with * will group to \"Emacs\".
- Other buffer group by `centaur-tabs-get-group-name' with project name."
-     (list
-      (cond
-	((derived-mode-p 'prog-mode)
-	 "Editing")
-	((derived-mode-p 'dired-mode)
-	 "Dired")
-	((memq major-mode '(helpful-mode
-			    help-mode))
-	 "Help")
-	((memq major-mode '(org-mode
-			    org-agenda-clockreport-mode
-			    org-src-mode
-			    org-agenda-mode
-			    org-beamer-mode
-			    org-indent-mode
-			    org-bullets-mode
-			    org-cdlatex-mode
-			    org-agenda-log-mode
-			    diary-mode))
-	 "OrgMode")
-        ((memq major-mode `(telega-root-mode
-                            telega-chat-mode
-                            telega-image-mode))
-         "Telega")
-	(t
-	 (centaur-tabs-get-group-name (current-buffer)))))))
+(when (eq system-type 'darwin)
+  (setq mac-command-modifier 'control)
+  (setq mac-control-modifier 'super)
+  (setq mac-option-modifier 'meta))
