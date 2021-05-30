@@ -59,3 +59,4 @@
   (setq mac-command-modifier 'control)
   (setq mac-control-modifier 'super)
   (setq mac-option-modifier 'meta))
+
