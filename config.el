@@ -59,9 +59,3 @@
   (setq mac-command-modifier 'control)
   (setq mac-control-modifier 'super)
   (setq mac-option-modifier 'meta))
-
-(use-package! reverse-im
-  :custom
-  (reverse-im-input-methods '("russian-computer"))
-  :config
-  (reverse-im-mode t))
